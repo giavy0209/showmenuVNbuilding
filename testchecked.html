@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    /*=========== 00. RESET CSS ================ */	
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:before, :after  {
+    box-sizing: border-box;
+}
+a, span, :before, :after { 
+    display: inline-block; 
+}
+:focus {
+    outline: none;
+}
+ul {
+    list-style-type: none;
+}
+a {
+    text-decoration: none;
+    -webkit-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    transition: all .3s ease;
+}
+img {
+    max-width: 100%;
+}
+
+body {
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.285;
+    color: #555;
+    font-weight: 400;
+    /* min-height: 2000px; */
+    overflow-x: hidden;
+    background-image: url("../images/bg-img.png");
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+/*=========== 00. General ================ */	
+.row{
+    font-size: 0;
+    margin-left: -15px;
+    margin-right: -15px;
+}
+.row [class*="hm-col-"],
+.row[class*="hm-column-"] .item{
+    padding-left: 15px;
+    padding-right: 15px;
+    display: inline-block;
+    vertical-align: top;
+    font-size: 14px;
+}
+.hm-col-12{
+    width:100%;
+}
+.hm-col-9{
+    width:75%;
+}
+.hm-col-7{
+    width:58.333333%;
+}
+.hm-col-6{
+    width:50%;
+}
+.hm-col-5{
+    width:41.6666%;
+}
+.hm-col-4{
+    width:33.33333%;
+}
+.hm-col-3{
+    width:25%;
+}
+
+.hm-column-2 .item{
+    width: 16.666666%;
+}
+.hm-column-3 .item{
+    width: 33.3333333%;
+}
+.hm-column-3 .item:not(:nth-child(-n + 3)) {
+    margin-top: 30px;
+}
+.hm-column-4 .item{
+    width: 25%;
+}
+.hm-column-5 .item{
+    width: 20%;
+}
+.hm-column-5 .item:not(:nth-child(-n + 5)) {
+    margin-top: 30px;
+}
+
+.va-t{
+    vertical-align: top;
+}
+.va-m{
+    vertical-align: middle;
+}
+.va-b{
+    vertical-align: bottom;
+}
+.dp-inb{
+    display: inline-block !important;
+}
+.dp-b{
+    display:block !important;
+}
+.clear::after{
+    content: " ";
+    display:block;
+    clear: both;
+}
+.pl-0{
+    padding-left: 0 !important; 
+}
+.pr-0{
+    padding-right: 0 !important;
+}
+/* ===================02. Menu============= */
+#menu{
+    margin-top: 28px;
+}
+.width-device-width-menu{
+    background-color: #014eff;
+}
+.width-device-width-menu .title-menu{
+    position: relative;
+}
+.width-device-width-menu .hm-col-3{
+    position: relative;
+    padding-right: 0;
+}
+
+.width-device-width-menu .title-menu::before{
+    content: " ";
+    width: 16px;
+    height: 2px;
+    background-color: #fff;
+    position: absolute;
+    top: 16px;
+    left: 18px;
+    box-shadow: 0 5px 0 #fff;
+}
+.width-device-width-menu .title-menu::after{
+    content: " ";
+    width: 16px;
+    height: 2px;
+    background-color: #fff;
+    position: absolute;
+    top: 26px;
+    left: 18px;
+}
+
+.title-menu{
+    background-color: #ff6600;
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #fff;
+    padding: 11px 0 11px 46px;
+}
+#show-menu{
+    position: absolute;
+    top:-50px;
+    left: 0;
+    opacity: 0;
+
+}
+#show-menu-label{
+    position: absolute;
+    top: -50px;
+    left: 0;
+    width: 100%;
+    height:50px;
+    z-index: 999;
+}
+.title-menu h1{
+    padding-left: 25px;
+}
+.width-device-width-menu .hm-col-9{
+    padding-left: 0;
+}
+.menu-x li{
+    display: inline-block;
+}
+.menu-x li{
+    border-right: 1px solid #2668fe;
+}
+.menu-x li+li{
+    border-left: 1px solid #0149f0;
+}
+.menu-x li:last-child{
+    border-right: none;
+    border-left: none;
+    padding-left: 25px;
+}
+.menu-x li a{
+    text-transform: uppercase;
+    color:#fff;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 12px 5px;
+}
+.menu-x li:hover > a,
+.menu-x .active{
+    background-color: #013ecc;
+}
+#show-menu:checked ~ .hm-col-3.pr-0 .menu-y{
+    position: relative;
+    top: 0;
+    opacity: 1;
+    pointer-events: all;
+}
+.hm-col-12.pl-0{
+}
+#show-menu:checked ~ .hm-col-12.pl-0 {
+    width: 75%;
+}
+#menu-y{
+    position: relative;
+
+}
+.menu-y{
+    border-bottom: 1px solid #eee;
+    border-left: 1px solid #d9d9d9;
+    position: absolute;
+    top: -50px;
+    transition: all .3s;
+    opacity: 0;
+    pointer-events: none;
+}
+.menu-y li a{
+    padding: 14px 0 15px 16px;
+    color: #333;
+    width: 100%;
+    background-color: #fff;
+}
+.menu-y li+li a{
+    border-top: 1px dashed #b4b4b4;
+}
+.menu-y ul > li a .icon{
+    color: #c2c2c2;
+    float: right;
+    margin-right: 20px;
+}
+.menu-y ul > li a:hover{
+    background-color: #ff6600;
+    color: #fff;
+}
+.menu-y ul li{
+    position: relative;
+}
+.menu-y ul li ul{
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translate(110%, 0%);
+    opacity: 0;
+    pointer-events: none;
+    -webkit-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    transition: all .3s ease;
+}
+.menu-y ul li ul li a {
+    color: #fff;
+    background-color: #ff6600;
+    width: 200px;
+}
+.menu-y li ul li a:hover{
+    color: #333
+}
+.menu-y li:hover > ul{
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(100%, 0%);
+}
+.slide img{
+    width: 100%;
+}
+</style>
+<body>
+        <nav id="menu">
+                <div class="width-device-width-menu">
+                    <div class="container">
+                        <div class="row">
+                            <div class="hm-col-3 title-menu">
+                                 <h1 class="dp-inb">danh mục sản phẩm</h1>
+                            </div>
+                            <div class="hm-col-9">
+                                <div class="menu-x">
+                                    <ul>
+                                        <li class="active"><a href="#">trang chủ</a></li>
+                                        <li><a href="#">giới thiệu</a></li>
+                                        <li><a href="#">sản phẩm</a></li>
+                                        <li><a href="#">dịch vụ</a></li>
+                                        <li><a href="#">dự án tiêu biểu</a></li>
+                                        <li><a href="#">khách hàng tiêu biểu</a></li>
+                                        <li><a href="#">liên hệ</a></li>
+                                        <li><a href="#"><i class="fas fa-search"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row" id="menu-y">
+                        <input type="checkbox" id="show-menu"><label id="show-menu-label" for="show-menu">csss</label>
+                        <div class="hm-col-3 pr-0 pl-0">
+                            <div class="menu-y">
+                                <ul>
+                                    <li><a href="">Giấy dầu</a></li>
+                                    <li><a href="">Vải địa kỹ thuật</a></li>
+                                    <li><a href="">Rọ đá</a></li>
+                                    <li><a href="">Lưới thép<i class="icon fas fa-caret-right"></i></a>
+                                        <ul id="sub-menu">
+                                            <li><a href="#">Lưới B40<i class="icon fas fa-chevron-right"></i></a>
+                                                <ul>
+                                                    <li><a href="#">Lưới B40-Lưới mắt cáo</a></li>
+                                                    <li><a href="#">Lưới B40-Các loại ô lưới</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="#">Lưới B41<i class="icon fas fa-chevron-right"></i></a>
+                                                <ul>
+                                                    <li><a href="#">Lưới B40-Lưới mắt cáo</a></li>
+                                                    <li><a href="#">Lưới B40-Các loại ô lưới</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="#">Lưới bọc nhựa PVC</a></li>
+                                            <li><a href="#">Dây bọc nhựa PVC</a></li>
+                                            <li><a href="#">Dây thép gai</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="">Dây thép gai</a></li>
+                                    <li><a href="">Nhựa đường</a></li>
+                                    <li><a href="">Vật tư giao thông<i class="icon fas fa-caret-right"></i></a></li>
+                                    <li><a href="">Sản phẩm khác</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- end of hm-col-3 -->
+                        <div class="hm-col-12 pl-0">
+                            <div class="slide">
+                                <div class="img-1">
+                                    <img src="images/slide.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+</body>
+</html>
